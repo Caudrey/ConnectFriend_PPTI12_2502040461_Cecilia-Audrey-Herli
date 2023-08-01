@@ -17,10 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id'
     ];
 
     /**
@@ -41,5 +39,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'interest_work' => 'array'
     ];
+
+
+    public function friend(){
+        return $this->hasMany(Friend::class, 'user_id');
+    }
 }
