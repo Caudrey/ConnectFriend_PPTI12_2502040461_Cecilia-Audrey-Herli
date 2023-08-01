@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('avatars', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->string('image');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
